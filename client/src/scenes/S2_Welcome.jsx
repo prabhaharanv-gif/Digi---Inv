@@ -24,16 +24,16 @@ export default function S2_Welcome() {
           </div>
         </div>
 
-        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.9rem,2.5vw,1.1rem)', color:'#4a6e44', marginBottom:'0.3rem' }}>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.9rem,2.5vw,1.1rem)', color:'#1a3d18', marginBottom:'0.3rem' }}>
           Are getting married
         </div>
 
         <GoldDivider />
 
-        <div style={{ fontFamily:"'Playfair Display',serif", fontSize:'clamp(0.85rem,2.5vw,1.1rem)', color:'#3d6b38', letterSpacing:'2px', fontWeight:500 }}>
+        <div style={{ fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:'clamp(0.85rem,2.5vw,1.1rem)', color:'#1a3d18', letterSpacing:'2px', fontWeight:500 }}>
           {event?.date || '25 DECEMBER 2026'}
         </div>
-        <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.82rem', color:'#7aac72', marginTop:'0.2rem' }}>
+        <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.82rem', color:'#2c5228', marginTop:'0.2rem' }}>
           {event?.venue}, Chennai
         </div>
 
@@ -69,7 +69,7 @@ function SceneBg({ children }) {
   return (
     <div style={{
       width:'100%', height:'100%', overflow:'hidden', position:'relative',
-      background:'linear-gradient(160deg,#dff0d8 0%,#c8dbc0 40%,#b8d4b0 100%)',
+      background:'linear-gradient(160deg,#cce5c2 0%,#a8c89e 40%,#8ab87e 100%)',
     }}>
       <div style={{ position:'absolute', top:'-5%', left:'50%', transform:'translateX(-50%)', width:'70%', height:'50%', borderRadius:'50%', background:'radial-gradient(ellipse,rgba(255,255,255,0.5) 0%,transparent 70%)', pointerEvents:'none' }} />
       <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:'100%', position:'relative', zIndex:2 }}>
@@ -80,7 +80,7 @@ function SceneBg({ children }) {
 }
 
 function GoldLabel({ children }) {
-  return <div style={{ fontFamily:"'Cinzel',serif", color:'#c9922a', fontSize:'clamp(0.45rem,1.4vw,0.58rem)', letterSpacing:'5px', marginBottom:'0.5rem' }}>{children}</div>
+  return <div style={{ fontFamily:"'Cinzel',serif", color:'#4a2800', fontWeight:700, fontSize:'clamp(0.45rem,1.4vw,0.58rem)', letterSpacing:'5px', marginBottom:'0.5rem' }}>{children}</div>
 }
 
 function GoldDivider() {

@@ -22,22 +22,22 @@ export default function S10_ThankYou() {
   }, [])
 
   return (
-    <div style={{ width:'100%', height:'100%', overflow:'hidden', position:'relative', background:'linear-gradient(160deg,#dff0d8 0%,#c8dbc0 40%,#b8d4b0 100%)', display:'flex', alignItems:'center', justifyContent:'center' }}>
+    <div style={{ width:'100%', height:'100%', overflow:'hidden', position:'relative', background:'linear-gradient(160deg,#cce5c2 0%,#a8c89e 40%,#8ab87e 100%)', display:'flex', alignItems:'center', justifyContent:'center' }}>
       <style>{`@keyframes petalFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}} @keyframes hb2{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}`}</style>
       <div style={{ position:'absolute', top:'-5%', left:'50%', transform:'translateX(-50%)', width:'70%', height:'50%', borderRadius:'50%', background:'radial-gradient(ellipse,rgba(255,255,255,0.5) 0%,transparent 70%)', pointerEvents:'none' }} />
       <div ref={ref} style={{ position:'absolute', inset:0, pointerEvents:'none', zIndex:1 }} />
       <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:1,ease:[0.25,0.46,0.45,0.94]}}
         style={{ position:'relative', zIndex:2, textAlign:'center', padding:'2rem 1.5rem', maxWidth:460 }}>
-        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.78rem,2.2vw,0.95rem)', color:'#7aac72', letterSpacing:'2px', marginBottom:'0.5rem' }}>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.78rem,2.2vw,0.95rem)', color:'#2c5228', letterSpacing:'2px', marginBottom:'0.5rem' }}>
           Thank you, with all our hearts
         </div>
         <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(2rem,8vw,4rem)', color:'#2c4a28', textShadow:'0 2px 12px rgba(44,74,40,0.15)', marginBottom:'0.3rem' }}>
           {guest?.name}
         </div>
         <GoldDiv />
-        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(1rem,3vw,1.25rem)', color:'#3d6b38', lineHeight:1.9 }}>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(1rem,3vw,1.25rem)', color:'#1a3d18', lineHeight:1.9 }}>
           We can't wait to celebrate<br/>this beautiful moment with you.
-          <div style={{ fontSize:'0.82em', color:'rgba(74,110,68,0.6)', marginTop:'0.3rem' }}>Your presence means the world to us.</div>
+          <div style={{ fontSize:'0.82em', color:'rgba(26,61,24,0.8)', marginTop:'0.3rem' }}>Your presence means the world to us.</div>
         </div>
         <GoldDiv />
         <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.6rem,6vw,3rem)', color:'#2c4a28', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>

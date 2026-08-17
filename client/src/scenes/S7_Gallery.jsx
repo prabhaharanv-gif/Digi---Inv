@@ -11,10 +11,10 @@ export default function S7_Gallery() {
   const variants = { enter:d=>({x:d>0?'100%':'-100%',opacity:0}), center:{x:0,opacity:1}, exit:d=>({x:d>0?'-100%':'100%',opacity:0}) }
 
   return (
-    <div style={{ width:'100%', height:'100%', overflow:'hidden', position:'relative', background:'linear-gradient(160deg,#dff0d8 0%,#c8dbc0 40%,#b8d4b0 100%)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'1.5rem 1.2rem' }}>
+    <div style={{ width:'100%', height:'100%', overflow:'hidden', position:'relative', background:'linear-gradient(160deg,#cce5c2 0%,#a8c89e 40%,#8ab87e 100%)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'1.5rem 1.2rem' }}>
       <div style={{ position:'absolute', top:'-5%', left:'50%', transform:'translateX(-50%)', width:'70%', height:'50%', borderRadius:'50%', background:'radial-gradient(ellipse,rgba(255,255,255,0.5) 0%,transparent 70%)', pointerEvents:'none' }} />
       <div style={{ textAlign:'center', marginBottom:'1rem', zIndex:2 }}>
-        <div style={{ fontFamily:"'Cinzel',serif", color:'#c9922a', fontSize:'clamp(0.45rem,1.4vw,0.55rem)', letterSpacing:'5px' }}>✦ &nbsp; OUR MOMENTS &nbsp; ✦</div>
+        <div style={{ fontFamily:"'Cinzel',serif", color:'#4a2800', fontWeight:700, fontSize:'clamp(0.45rem,1.4vw,0.55rem)', letterSpacing:'5px' }}>✦ &nbsp; OUR MOMENTS &nbsp; ✦</div>
         <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.8rem,5vw,2.8rem)', color:'#2c4a28', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>Cherished Memories</div>
       </div>
       {/* Gold border frame */}
@@ -40,7 +40,7 @@ export default function S7_Gallery() {
           </button>
         ))}
       </div>
-      <div style={{ marginTop:'0.5rem', fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'3px', color:'rgba(61,107,56,0.45)', zIndex:2 }}>{idx+1} / {gallery.length}</div>
+      <div style={{ marginTop:'0.5rem', fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'3px', color:'rgba(26,61,24,0.7)', zIndex:2 }}>{idx+1} / {gallery.length}</div>
     </div>
   )
 }
