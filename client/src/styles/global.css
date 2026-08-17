@@ -1,0 +1,30 @@
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --sage:      #c8dbc0;
+  --sage-mid:  #a8c8a0;
+  --sage-deep: #7aac72;
+  --mint:      #e8f4e4;
+  --mint-pale: #f0f8ec;
+  --cream:     #fdfaf5;
+  --gold:      #c9922a;
+  --gold-mid:  #d4a843;
+  --gold-light:#e8c97a;
+  --gold-pale: #f5e4b0;
+  --ivory:     #faf6ee;
+  --green-dark:#3d6b38;
+  --text-dark: #2c4a28;
+  --text-mid:  #4a6e44;
+  --white:     #ffffff;
+}
+
+html, body { width:100%; height:100%; background:#e8f4e4; }
+body { font-family:'Lato',sans-serif; overscroll-behavior:none; }
+#root { width:100%; height:100%; }
+button { cursor:pointer; font-family:inherit; border:none; background:none; }
+a { text-decoration:none; color:inherit; }
