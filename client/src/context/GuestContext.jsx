@@ -1,8 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getMeta, loadBlobUrl, saveMeta } from './mediaStore'
 
 const GuestContext = createContext(null)
+
+/* ── API base — reads VITE_API_URL env var set in Vercel ─────────────────
+   In dev: empty string → proxy via vite.config.js → localhost:3001
+   In prod: "https://your-railway-url.up.railway.app"
+────────────────────────────────────────────────────────────────────────── */
+export const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const MOCK_EVENT = {
   groomName: 'Vijay', brideName: 'Sangeetha',
@@ -54,74 +59,48 @@ export function GuestProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   /*
-   * mediaConfig holds live objectURLs for the current tab session.
-   * These are loaded fresh from IndexedDB each time the app mounts,
-   * so they never go stale and work on both desktop and mobile.
+   * mediaConfig holds URLs served from Railway backend.
+   * These are real HTTP URLs — work on any device, any browser.
    */
-  const [mediaConfig, setMediaConfig] = useState({ musicUrl: null, videoUrl: null })
+  const [mediaConfig, setMediaConfig] = useState({
+    videoUrl: null, videoName: null,
+    musicUrl: null, musicName: null,
+  })
 
-  /* Load objectURLs from IndexedDB on mount */
+  /* Fetch media config from server on mount */
   useEffect(() => {
-    async function loadMedia() {
-      const meta = getMeta() // { musicName, videoName, hasMusic, hasVideo }
-
-      const [musicUrl, videoUrl] = await Promise.all([
-        meta.hasMusic ? loadBlobUrl('music') : Promise.resolve(null),
-        meta.hasVideo ? loadBlobUrl('video') : Promise.resolve(null),
-      ])
-
-      setMediaConfig({
-        musicUrl,
-        videoUrl,
-        musicName: meta.musicName || null,
-        videoName: meta.videoName || null,
-      })
-    }
-
-    loadMedia()
+    fetch(`${API_BASE}/api/media/config`)
+      .then(r => r.json())
+      .then(data => setMediaConfig(data))
+      .catch(() => {}) // server not running → no media, that's fine
   }, [])
 
-  /* Re-load whenever Dashboard saves new media */
+  /* Re-fetch when Dashboard signals an update */
   useEffect(() => {
-    async function onUpdate() {
-      const meta = getMeta()
-      const [musicUrl, videoUrl] = await Promise.all([
-        meta.hasMusic ? loadBlobUrl('music') : Promise.resolve(null),
-        meta.hasVideo ? loadBlobUrl('video') : Promise.resolve(null),
-      ])
-      setMediaConfig(prev => ({
-        ...prev,
-        musicUrl,  videoUrl,
-        musicName: meta.musicName || null,
-        videoName: meta.videoName || null,
-      }))
+    function onUpdate() {
+      fetch(`${API_BASE}/api/media/config`)
+        .then(r => r.json())
+        .then(data => setMediaConfig(data))
+        .catch(() => {})
     }
-
     window.addEventListener('weddingMediaUpdate', onUpdate)
     return () => window.removeEventListener('weddingMediaUpdate', onUpdate)
   }, [])
 
-  /* updateMedia is called by Dashboard after it saves a blob */
+  /* updateMedia called by Dashboard immediately after upload */
   function updateMedia(updates) {
-    // Dashboard handles IndexedDB write + saveMeta.
-    // This function is kept for API compatibility — the event listener
-    // above picks up changes automatically.
-    if (updates.musicUrl !== undefined) {
-      setMediaConfig(prev => ({ ...prev, musicUrl: updates.musicUrl, musicName: updates.musicName }))
-    }
-    if (updates.videoUrl !== undefined) {
-      setMediaConfig(prev => ({ ...prev, videoUrl: updates.videoUrl, videoName: updates.videoName }))
-    }
+    setMediaConfig(prev => ({ ...prev, ...updates }))
+    window.dispatchEvent(new Event('weddingMediaUpdate'))
   }
 
-  /* Load guest + event data */
+  /* Load guest + event */
   useEffect(() => {
     let cancelled = false
     async function load() {
       const mockName  = MOCK_GUESTS[token?.toLowerCase()] || capitalize(token)
       const mockGuest = { name: mockName, token }
       try {
-        const res  = await fetch(`/api/invite/${token}`, { signal: AbortSignal.timeout(3000) })
+        const res  = await fetch(`${API_BASE}/api/invite/${token}`, { signal: AbortSignal.timeout(3000) })
         if (!res.ok) throw new Error('not found')
         const data = await res.json()
         if (!cancelled) {
