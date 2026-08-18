@@ -12,7 +12,8 @@ let mediaConfig = { videoUrl:null, videoName:null, musicUrl:null, musicName:null
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, UPLOAD_DIR),
   filename: (req, file, cb) => {
-    const type = req.body?.type || 'file'
+    // type comes from query string (?type=video) OR multipart body field
+    const type = req.query.type || req.body?.type || 'file'
     const ext  = path.extname(file.originalname) || (file.mimetype.includes('video') ? '.mp4' : '.mp3')
     cb(null, `${type}${ext}`)
   },
@@ -34,16 +35,25 @@ function fileUrl(req, type, filename) {
 
 router.post('/upload', (req, res) => {
   upload.single('file')(req, res, (err) => {
-    if (err) return res.status(400).json({ error: err.message })
+    if (err) {
+      console.error('Multer error:', err.message)
+      return res.status(400).json({ error: err.message })
+    }
     if (!req.file) return res.status(400).json({ error: 'No file received' })
-    const type = req.body?.type
-    if (!type || !['video','music'].includes(type))
-      return res.status(400).json({ error: 'type must be video or music' })
+
+    // Accept type from query string (?type=video) OR multipart body field
+    const type = req.query.type || req.body?.type
+    if (!type || !['video','music'].includes(type)) {
+      return res.status(400).json({ error: 'type must be "video" or "music" (send as query param or form field)' })
+    }
+
     const url  = fileUrl(req, type, req.file.filename)
     const name = req.file.originalname
+
     if (type === 'video') { mediaConfig.videoUrl = url; mediaConfig.videoName = name }
     else                  { mediaConfig.musicUrl = url; mediaConfig.musicName = name }
-    console.log(`Uploaded ${type}: ${req.file.filename}`)
+
+    console.log(`✅ Uploaded ${type}: ${req.file.filename} (${Math.round(req.file.size/1024)}KB)`)
     res.json({ success:true, url, name, type })
   })
 })
@@ -71,9 +81,9 @@ router.get('/file/:type/:filename', (req, res) => {
   const mimeMap  = { '.mp4':'video/mp4','.webm':'video/webm','.ogg':'video/ogg','.mp3':'audio/mpeg','.wav':'audio/wav','.m4a':'audio/mp4' }
   const mime     = mimeMap[ext] || 'application/octet-stream'
   if (range) {
-    const [s, e]    = range.replace(/bytes=/, '').split('-')
-    const start     = parseInt(s, 10)
-    const end       = e ? parseInt(e, 10) : fileSize - 1
+    const [s, e] = range.replace(/bytes=/, '').split('-')
+    const start  = parseInt(s, 10)
+    const end    = e ? parseInt(e, 10) : fileSize - 1
     res.writeHead(206, { 'Content-Range':`bytes ${start}-${end}/${fileSize}`, 'Accept-Ranges':'bytes', 'Content-Length':end-start+1, 'Content-Type':mime })
     fs.createReadStream(filePath, { start, end }).pipe(res)
   } else {

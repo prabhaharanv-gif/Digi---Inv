@@ -128,7 +128,7 @@ function UploadCard({ title, subtitle, accept, icon, mediaType,
 
         xhr.addEventListener('error', () => reject(new Error('Network error — check your connection')))
 
-        xhr.open('POST', `${API_BASE}/api/media/upload`)
+        xhr.open('POST', `${API_BASE}/api/media/upload?type=${mediaType}`)
         xhr.send(formData)
       })
 
@@ -542,3 +542,4 @@ export default function Dashboard({ onClose }) {
     </div>
   )
 }
+
