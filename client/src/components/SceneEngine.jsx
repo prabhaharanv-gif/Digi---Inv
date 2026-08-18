@@ -111,7 +111,7 @@ export default function SceneEngine() {
             background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(10px)',
             border: '1px solid rgba(201,146,42,0.3)',
             boxShadow: '0 4px 12px rgba(44,74,40,0.12)',
-            color: '#3d6b38', padding: '0.4rem 0.85rem', borderRadius: '50px',
+            color: '#5c3000', padding: '0.4rem 0.85rem', borderRadius: '50px',
             fontSize: '0.62rem', letterSpacing: '2px', cursor: 'pointer',
             fontFamily: "'Cinzel',serif",
           }}

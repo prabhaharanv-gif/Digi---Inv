@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGuest } from '../context/GuestContext'
 
-const COLORS = ['#c9922a','#7aac72','#3d6b38','#d4a843']
+const COLORS = ['#c9922a','#8b4513','#5c3000','#d4a843']
 
 export default function S4_Programs() {
   const { event } = useGuest()
@@ -17,10 +17,10 @@ export default function S4_Programs() {
         style={{ position:'relative', zIndex:2, width:'100%', maxWidth:460, padding:'1.5rem 1.5rem' }}>
 
         <div style={{ textAlign:'center', marginBottom:'1.5rem' }}>
-          <div style={{ fontFamily:"'Cinzel',serif", color:'#4a2800', fontWeight:700, fontSize:'clamp(0.45rem,1.4vw,0.55rem)', letterSpacing:'5px' }}>
+          <div style={{ fontFamily:"'Cinzel',serif", color:'#4a2000', fontWeight:700, fontSize:'clamp(0.45rem,1.4vw,0.55rem)', letterSpacing:'5px' }}>
             ✦ &nbsp; CELEBRATIONS &nbsp; ✦
           </div>
-          <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.8rem,6vw,3rem)', color:'#2c4a28', marginTop:'0.2rem', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>
+          <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.8rem,6vw,3rem)', color:'#4a2000', marginTop:'0.2rem', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>
             Wedding Programs
           </div>
           <GoldLine />
@@ -40,7 +40,7 @@ export default function S4_Programs() {
               {i < programs.length-1 && <div style={{ width:1, flex:1, minHeight:28, background:`linear-gradient(180deg,${COLORS[i%4]}60,${COLORS[(i+1)%4]}40)` }}/>}
             </div>
             <div style={{ paddingBottom:'1.3rem', flex:1, cursor:'pointer' }} onClick={() => setOpen(open===i?null:i)}>
-              <div style={{ fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:'clamp(0.78rem,2.2vw,0.92rem)', color:'#2c4a28', letterSpacing:'1px' }}>
+              <div style={{ fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:'clamp(0.78rem,2.2vw,0.92rem)', color:'#4a2000', letterSpacing:'1px' }}>
                 {p.event}
               </div>
               <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.72rem', color:COLORS[i%4], marginTop:'0.1rem' }}>
@@ -50,7 +50,7 @@ export default function S4_Programs() {
                 {open===i && (
                   <motion.div initial={{opacity:0,height:0}} animate={{opacity:1,height:'auto'}} exit={{opacity:0,height:0}} transition={{duration:0.3}} style={{overflow:'hidden'}}>
                     <div style={{ margin:'0.5rem 0 0', padding:'0.7rem 1rem', background:'rgba(255,255,255,0.55)', border:`1px solid ${COLORS[i%4]}44`, borderRadius:8,
-                      fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.8rem,2.2vw,0.92rem)', color:'#1a3d18', lineHeight:1.6 }}>
+                      fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.8rem,2.2vw,0.92rem)', color:'#3d1a00', lineHeight:1.6 }}>
                       <span style={{ fontFamily:"'Cinzel',serif", fontStyle:'normal', fontSize:'0.6rem', color:'#c9922a', letterSpacing:'1px' }}>{p.venue}</span><br/>
                       {p.desc}
                     </div>
@@ -61,7 +61,7 @@ export default function S4_Programs() {
           </motion.div>
         ))}
 
-        <div style={{ textAlign:'center', fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.6rem', color:'rgba(26,61,24,0.7)', letterSpacing:'2px' }}>
+        <div style={{ textAlign:'center', fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'0.6rem', color:'rgba(61,26,0,0.78)', letterSpacing:'2px' }}>
           TAP ANY EVENT FOR DETAILS
         </div>
       </motion.div>

@@ -28,24 +28,24 @@ export default function S10_ThankYou() {
       <div ref={ref} style={{ position:'absolute', inset:0, pointerEvents:'none', zIndex:1 }} />
       <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:1,ease:[0.25,0.46,0.45,0.94]}}
         style={{ position:'relative', zIndex:2, textAlign:'center', padding:'2rem 1.5rem', maxWidth:460 }}>
-        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.78rem,2.2vw,0.95rem)', color:'#2c5228', letterSpacing:'2px', marginBottom:'0.5rem' }}>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.78rem,2.2vw,0.95rem)', color:'#5c2800', letterSpacing:'2px', marginBottom:'0.5rem' }}>
           Thank you, with all our hearts
         </div>
-        <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(2rem,8vw,4rem)', color:'#2c4a28', textShadow:'0 2px 12px rgba(44,74,40,0.15)', marginBottom:'0.3rem' }}>
+        <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(2rem,8vw,4rem)', color:'#4a2000', textShadow:'0 2px 12px rgba(44,74,40,0.15)', marginBottom:'0.3rem' }}>
           {guest?.name}
         </div>
         <GoldDiv />
-        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(1rem,3vw,1.25rem)', color:'#1a3d18', lineHeight:1.9 }}>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(1rem,3vw,1.25rem)', color:'#3d1a00', lineHeight:1.9 }}>
           We can't wait to celebrate<br/>this beautiful moment with you.
-          <div style={{ fontSize:'0.82em', color:'rgba(26,61,24,0.8)', marginTop:'0.3rem' }}>Your presence means the world to us.</div>
+          <div style={{ fontSize:'0.82em', color:'rgba(61,26,0,0.85)', marginTop:'0.3rem' }}>Your presence means the world to us.</div>
         </div>
         <GoldDiv />
-        <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.6rem,6vw,3rem)', color:'#2c4a28', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>
+        <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.6rem,6vw,3rem)', color:'#4a2000', textShadow:'0 1px 8px rgba(44,74,40,0.1)' }}>
           {event?.groomName} &nbsp;
           <span style={{ display:'inline-block', animation:'hb2 1.6s infinite' }}>💚</span>
           &nbsp; {event?.brideName}
         </div>
-        <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'clamp(0.6rem,1.8vw,0.7rem)', color:'rgba(74,110,68,0.45)', marginTop:'0.7rem', letterSpacing:'3px' }}>
+        <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'clamp(0.6rem,1.8vw,0.7rem)', color:'rgba(61,26,0,0.65)', marginTop:'0.7rem', letterSpacing:'3px' }}>
           25 · 12 · 2026 &nbsp;·&nbsp; CHENNAI
         </div>
       </motion.div>

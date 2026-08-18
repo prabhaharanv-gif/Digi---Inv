@@ -32,17 +32,17 @@ export default function S5_Traditional() {
 
             <div style={{ position:'relative', zIndex:1 }}>
               <div style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:'clamp(1.5rem,5vw,2rem)', color:'#c9922a', marginBottom:'0.3rem' }}>ॐ</div>
-              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:'clamp(1rem,3.5vw,1.3rem)', color:'#2c4a28', letterSpacing:'2px', marginBottom:'0.8rem' }}>
+              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:'clamp(1rem,3.5vw,1.3rem)', color:'#4a2000', letterSpacing:'2px', marginBottom:'0.8rem' }}>
                 அன்புடையீர்
               </div>
               <GoldDivider />
-              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontWeight:300, fontSize:'clamp(0.72rem,2.2vw,0.85rem)', color:'#1a3d18', lineHeight:1.85, margin:'0.6rem 0' }}>
+              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontWeight:300, fontSize:'clamp(0.72rem,2.2vw,0.85rem)', color:'#3d1a00', lineHeight:1.85, margin:'0.6rem 0' }}>
                 With hearts full of gratitude, we seek your divine blessings and loving presence at the sacred union of
               </div>
-              <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.2rem,4vw,1.8rem)', color:'#2c4a28', margin:'0.4rem 0', textShadow:'0 1px 6px rgba(44,74,40,0.1)' }}>
+              <div style={{ fontFamily:"'Great Vibes',cursive", fontSize:'clamp(1.2rem,4vw,1.8rem)', color:'#4a2000', margin:'0.4rem 0', textShadow:'0 1px 6px rgba(44,74,40,0.1)' }}>
                 {event?.groomName} &amp; {event?.brideName}
               </div>
-              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.68rem,2vw,0.8rem)', color:'#2c5228', lineHeight:1.8 }}>
+              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.68rem,2vw,0.8rem)', color:'#5c2800', lineHeight:1.8 }}>
                 Son of Thiru. {f[0]?.name} &amp; Thirumathi. {f[1]?.name}<br/>
                 with the beloved daughter of<br/>
                 Thiru. {f[2]?.name} &amp; Thirumathi. {f[3]?.name}
@@ -51,11 +51,11 @@ export default function S5_Traditional() {
               <div style={{ fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:'clamp(0.62rem,1.8vw,0.75rem)', color:'#c9922a', letterSpacing:'2px', margin:'0.5rem 0 0.3rem', fontWeight:500 }}>
                 25 DECEMBER 2026 · 9:30 AM
               </div>
-              <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'clamp(0.62rem,1.8vw,0.72rem)', color:'#2c5228', lineHeight:1.6 }}>
+              <div style={{ fontFamily:"'Lato',sans-serif", fontWeight:300, fontSize:'clamp(0.62rem,1.8vw,0.72rem)', color:'#5c2800', lineHeight:1.6 }}>
                 {event?.venue}<br/>{event?.venueAddress}
               </div>
               <GoldDivider />
-              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.65rem,1.8vw,0.75rem)', color:'rgba(26,61,24,0.8)' }}>
+              <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(0.65rem,1.8vw,0.75rem)', color:'rgba(61,26,0,0.85)' }}>
                 Your presence is our greatest blessing
               </div>
             </div>
